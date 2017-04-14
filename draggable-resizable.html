@@ -1,0 +1,110 @@
+<html>
+
+    <head>
+    
+        <title>Draggable and Resizable</title>
+        
+        <script src="jquery.min.js"></script>
+        
+        <script src="jquery-ui/jquery-ui.js"></script>
+        
+        <link href="jquery-ui/jquery-ui.css" rel="stylesheet">
+        
+        <style type="text/css">
+            
+            #draggable {
+                
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                background-color: aquamarine;
+                
+            }
+            
+            
+            #yellow-box {
+                
+                width: 300px;
+                height: 300px;
+                background-color: lightgoldenrodyellow; 
+                
+            }
+            
+            #resizable {
+                
+                width: 200px;
+                height: 200px;
+                background-color: lightcoral; 
+                
+            }
+            
+            #also {
+                
+                width: 200px;
+                height: 200px;
+                background-color: lightgreen; 
+                
+            }
+            
+        
+            
+        
+        </style>
+    
+    
+    </head>
+    
+    
+    <body>
+        
+        <div id="draggable">I can only go horizontal.</div>
+        
+        <div id="yellow-box">
+        
+            <span>I'm stuck in this box!</span>
+        
+        </div>
+        
+        <div id="resizable"></div>
+        
+        <div id="also"></div>
+        
+        
+        
+        
+        
+        
+        <script type="text/javascript">
+            
+            $( "#draggable" ).draggable({ axis: "x"});
+            
+            $("span").draggable({ containment: "parent"});
+            
+            $( "#resizable" ).resizable({
+                
+               alsoResize: "#also",
+               resize: function(event, ui){
+                   
+                   if($("#resizable").width() > 300){
+                       
+                       
+                       alert("big enough!");
+                       
+                   }
+                   
+               }
+                
+            });
+            
+            $("#also").resizable();
+            
+            
+            
+            
+          
+
+        </script>
+    
+    </body>
+
+</html>
